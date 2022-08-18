@@ -1,7 +1,3 @@
-
-
-
-
 class Task {
      constructor(title, description, dueDate, priority, id) {
           this.title = title;
@@ -25,13 +21,12 @@ class Task {
      }
 };
 
-
 class Project {
 
      constructor(title, id) {
           this.title = title;
           this.tasks = [];
-          this.currentTask = new Task('sample_task', 'with_description',);
+          this.currentTask = new Task('sample task', 'with description','2022-08-07',0);
           this.id = id;
           this.taskCount = 0;
      }
@@ -43,12 +38,33 @@ class Project {
      }
 
      removeTask = (id) => {
-          this.tasks = this.tasks.map((task) => (task.id != id));
+          this.tasks = this.tasks.filter((task) => (task.id != id));
      }
 };
 
+const ProjectRegistry = (() => {
+     const projects = [];
+     ;let projectCount = 0;
+     let currentProject = new Project('sample project', projectCount);
+     const addProject = () => {
+          projects.push(currentProject);
+          projectCount++;
+     }
+
+     const removeProject = (id) => {
+          projects = projects.filter((project) => (project.id != id));
+     }
+     return {
+          addProject,
+          projects,
+          currentProject,
+          removeProject,
+          projectCount
+     }
+})();
 
 export {
      Project,
-     Task
+     Task,
+     ProjectRegistry
 }

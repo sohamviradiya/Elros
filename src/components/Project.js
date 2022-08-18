@@ -1,8 +1,8 @@
 import '../style/style.css';
 import React from 'react';
 import Task from './Task';
-import * as Script from './script/script';
-
+import * as Script from '../script/script';
+import TaskForm from './TaskForm'
 class Project extends React.Component {
      constructor(props) {
           super(props);
@@ -11,7 +11,8 @@ class Project extends React.Component {
           return (
                <div>
                     <div>Project</div>
-                    <Task/>
+                    <Task />
+                    <TaskForm/>
           </div>
 
           );

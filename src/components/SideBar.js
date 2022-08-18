@@ -1,15 +1,20 @@
 import '../style/style.css';
 import React from 'react';
 import * as Script from '../script/script';
-class Task extends React.Component{
+import ProjectForm from './ProjectForm'
+
+class SideBar extends React.Component{
   constructor(props) {
        super(props);
   }
      render() {
       return (
-        <div>Task</div>
+        <div>
+          <div>SideBar</div>
+          <ProjectForm/>
+        </div>
       );
     }
 };
 
-export default Task;
+export default SideBar;
