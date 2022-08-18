@@ -5,7 +5,8 @@ import ProjectForm from './ProjectForm'
 
 class SideBar extends React.Component{
   constructor(props) {
-       super(props);
+    super(props);
+    console.log(props);
   }
      render() {
       return (

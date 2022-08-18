@@ -9,14 +9,15 @@ import Footer from './components/Footer';
     constructor(props) {
       super(props);
       this.state = {
-        script: Script.ProjectRegistry
+        data: Script.ProjectRegistry
       };
     }
     render() {
+      const { projects,currentProject,addProject,removeProject} = this.state.data; 
       return (
         <div>
           <Header />
-          
+          <SideBar projectList={projects} current={currentProject} add={addProject} remove={removeProject}/>
           <div>App</div>
           <Project />
           <Footer />
