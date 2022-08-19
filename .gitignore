@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-public
+/public
 
 # misc
 .DS_Store
