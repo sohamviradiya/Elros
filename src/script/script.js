@@ -1,12 +1,13 @@
 class Task {
-     constructor(title, description, dueDate, priority, id) {
+     constructor(title, description, dueDate, priority) {
           this.title = title;
           this.description = description;
           this.dueDate = new Date(...dueDate.split('-').map((x) => (Number(x))));
           this.dueDate.setMonth(this.dueDate.getMonth() - 1);
           this.setDate = new Date();
           this.priority = Number(priority);
-          this.id = id;
+          this.id = 0;
+          this.count++;
      }
      shade = () => {
           if (this.priority == 0)
@@ -18,8 +19,8 @@ class Task {
           else if (this.priority == 3)
                return 'warning';
           else
-               return 'failure';
-     }
+               return 'danger';
+     };
 };
 
 class Project {
@@ -27,19 +28,27 @@ class Project {
      constructor(title, id) {
           this.title = title;
           this.tasks = [];
-          this.currentTask = new Task('sample task', 'with description','2022-05-01',0);
+          this.currentTask = new Task('Destroy Everything', 'Leave Nothing ','2022-10-01',3);
           this.id = id;
           this.taskCount = 0;
-          this.addTask();
+          this.addTask(this.currentTask);
      }
 
-     addTask = () => {
-          this.tasks.push(this.currentTask);
+     addTask = (task) => {
+          if (this.tasks.find((t) => (t.title == task.title)) != undefined) {
+               alert('task already exists');
+               return this;
+          }
           this.taskCount++;
+          task.id = this.taskCount;
+          this.tasks.push(task);
+          return this;
      }
 
      removeTask = (id) => {
           this.tasks = this.tasks.filter((task) => (task.id != id));
+          this.taskCount--;
+          return this;
      }
      
 };
