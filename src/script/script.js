@@ -30,36 +30,27 @@ class Project {
           this.currentTask = new Task('sample task', 'with description','2022-05-01',0);
           this.id = id;
           this.taskCount = 0;
+          this.addTask();
      }
 
      addTask = () => {
           this.tasks.push(this.currentTask);
-          console.log(this.currentTask);
           this.taskCount++;
      }
 
      removeTask = (id) => {
           this.tasks = this.tasks.filter((task) => (task.id != id));
      }
+     
 };
 
 const ProjectRegistry = (() => {
-     const projects = [];
-     ;let projectCount = 0;
-     let currentProject = new Project('sample project', projectCount);
-     const addProject = () => {
-          projects.push(currentProject);
-          projectCount++;
-     }
-
-     const removeProject = (id) => {
-          projects = projects.filter((project) => (project.id != id));
-     }
+     let projects = [];
+     let projectCount = 0;
+     let currentProject = new Project('Sample', projectCount);
      return {
-          addProject,
           projects,
           currentProject,
-          removeProject,
           projectCount
      }
 })();
