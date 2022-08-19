@@ -1,10 +1,9 @@
-import './style/style.css';
-import React from 'react';
-import Project from './components/Project';
-import * as Script from './script/script';
-import Header from './components/Header';
-import SideBar from './components/SideBar';
-import Footer from './components/Footer';
+import "./style/style.css";
+import React from "react";
+import Project from "./components/Project";
+import * as Script from "./script/script";
+import Header from "./components/Header";
+import SideBar from "./components/SideBar";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -53,15 +52,14 @@ class App extends React.Component {
   render() {
 
     return (
-      <div className='container-fluid'>
+      <div className="container-fluid bg-dark">
         <Header />
-        <div className="container-fluid text-center" style={{marginTop: '4rem'}}>
+        <div className="container-fluid text-center" style={{marginTop: "4rem"}}>
           <div className="row">
             <SideBar projectList={this.state.projects} add={this.addProject} remove={this.removeProject} set={this.setProject} />
             <Project project={this.state.currentProject} addTask={this.addTask} removeTask={this.removeTask} />
           </div>
         </div>
-        <Footer />
       </div>
     );
   }

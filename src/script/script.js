@@ -9,18 +9,6 @@ class Task {
           this.id = 0;
           this.count++;
      }
-     shade = () => {
-          if (this.priority == 0)
-               return 'info';
-          else if (this.priority == 1)
-               return 'primary';
-          else if (this.priority == 2)
-               return 'success';
-          else if (this.priority == 3)
-               return 'warning';
-          else
-               return 'danger';
-     };
 };
 
 class Project {
