@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Elros/static/css/main.4de0fa12.css",
-    "main.js": "/Elros/static/js/main.118e1188.js",
+    "main.css": "/Elros/static/css/main.9b1e2a7a.css",
+    "main.js": "/Elros/static/js/main.e4290941.js",
     "static/js/787.f0013919.chunk.js": "/Elros/static/js/787.f0013919.chunk.js",
     "index.html": "/Elros/index.html",
-    "main.4de0fa12.css.map": "/Elros/static/css/main.4de0fa12.css.map",
-    "main.118e1188.js.map": "/Elros/static/js/main.118e1188.js.map",
+    "main.9b1e2a7a.css.map": "/Elros/static/css/main.9b1e2a7a.css.map",
+    "main.e4290941.js.map": "/Elros/static/js/main.e4290941.js.map",
     "787.f0013919.chunk.js.map": "/Elros/static/js/787.f0013919.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4de0fa12.css",
-    "static/js/main.118e1188.js"
+    "static/css/main.9b1e2a7a.css",
+    "static/js/main.e4290941.js"
   ]
 }
