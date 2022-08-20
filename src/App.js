@@ -15,6 +15,10 @@ class App extends React.Component {
   }
 
   addProject = (title) => {
+    if (title.length == 0) {
+      alert("Invalid Title");
+      return null;
+    }
     let project = new Script.Project(title, this.state.projectCount);
     this.setState({
       projects: this.state.projects.concat(project),
@@ -23,6 +27,18 @@ class App extends React.Component {
   };
 
   removeProject = (id) => {
+    if (this.state.currentProject.id == id) {
+      if (this.project.length == 1) {
+        this.setState({
+          currentProject: Script.ProjectRegistry.currentProject
+        });
+        return null;
+      }
+      this.setState({
+        currentProject: this.projects[0]
+      });
+      return null;
+    }
     this.setState({
       projects: this.state.projects.filter((project) => (project.id != id)),
       projectCount: this.state.projectCount - 1
@@ -36,15 +52,19 @@ class App extends React.Component {
   };
 
   addTask = (project_id, task) => {
+    if (task.title.length == 0) {
+      alert("Invalid Title");
+      return null;
+    }
     this.setState({
-      projects: this.state.projects.map((project) => ((project.id!=project_id)?(project):(project.addTask(task))))
+      projects: this.state.projects.map((project) => ((project.id != project_id) ? (project) : (project.addTask(task))))
     });
     console.log(this.state.projects);
   };
 
   removeTask = (project_id, task_id) => {
     this.setState({
-      projects: this.state.projects.map((project) => ((project.id!=project_id)?(project):(project.removeTask(task_id))))
+      projects: this.state.projects.map((project) => ((project.id != project_id) ? (project) : (project.removeTask(task_id))))
     });
     console.log(this.state.projects);
   };
@@ -54,7 +74,7 @@ class App extends React.Component {
     return (
       <div className="container-fluid bg-dark">
         <Header />
-        <div className="container-fluid text-center" style={{marginTop: "4rem"}}>
+        <div className="container-fluid text-center" style={{ marginTop: "4rem" }}>
           <div className="row">
             <SideBar projectList={this.state.projects} add={this.addProject} remove={this.removeProject} set={this.setProject} />
             <Project project={this.state.currentProject} addTask={this.addTask} removeTask={this.removeTask} />
