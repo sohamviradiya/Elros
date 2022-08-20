@@ -27,22 +27,17 @@ class App extends React.Component {
   };
 
   removeProject = (id) => {
-    if (this.state.currentProject.id == id) {
-      if (this.project.length == 1) {
-        this.setState({
-          currentProject: Script.ProjectRegistry.currentProject
-        });
-        return null;
-      }
-      this.setState({
-        currentProject: this.projects[0]
-      });
-      return null;
-    }
+    let { projects } = this.state;
     this.setState({
-      projects: this.state.projects.filter((project) => (project.id != id)),
+      projects: projects.filter((project) => (project.id != id)),
       projectCount: this.state.projectCount - 1
     });
+    if (this.state.currentProject.id == id) {
+      console.log('found');
+      this.setState({
+        currentProject: projects[0]
+      });
+    }
   };
 
   setProject = (id) => {
@@ -59,7 +54,6 @@ class App extends React.Component {
     this.setState({
       projects: this.state.projects.map((project) => ((project.id != project_id) ? (project) : (project.addTask(task))))
     });
-    console.log(this.state.projects);
   };
 
   removeTask = (project_id, task_id) => {
